@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Apna Sathi - Digital Service Portal">
+<title>Apna Sathi</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#f4f7fb;
+  color:#172033;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#075985,#2563eb);
+  color:white;
+  padding:18px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 3px 15px rgba(0,0,0,.15);
+}
+
+.logo{
+  font-size:25px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#facc15;
+}
+
+nav{
+  display:flex;
+  gap:20px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:55px 20px;
+  background:linear-gradient(135deg,#dbeafe,#eff6ff);
+}
+
+.hero h1{
+  font-size:42px;
+  color:#075985;
+  margin-bottom:10px;
+}
+
+.hero p{
+  font-size:17px;
+  color:#475569;
+  margin-bottom:25px;
+}
+
+/* SEARCH */
+.search-box{
+  max-width:650px;
+  margin:auto;
+  display:flex;
+  background:white;
+  padding:7px;
+  border-radius:50px;
+  box-shadow:0 8px 30px rgba(0,0,0,.12);
+}
+
+.search-box input{
+  flex:1;
+  border:0;
+  outline:none;
+  padding:15px 20px;
+  font-size:16px;
+  border-radius:50px;
+}
+
+.search-box button{
+  border:0;
+  background:#2563eb;
+  color:white;
+  padding:0 25px;
+  border-radius:50px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* MAIN LAYOUT */
+.main-layout{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 5%;
+  display:grid;
+  grid-template-columns:1fr 300px;
+  gap:25px;
+}
+
+/* SERVICES */
+.section{
+  padding:0;
+}
+
+.section-title{
+  text-align:center;
+  font-size:30px;
+  margin-bottom:30px;
+}
+
+.services{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(190px,1fr));
+  gap:20px;
+}
+
+.service-link{
+  text-decoration:none;
+  color:inherit;
+}
+
+.card{
+  background:white;
+  padding:28px 20px;
+  text-align:center;
+  border-radius:18px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  transition:.3s;
+  cursor:pointer;
+  border:1px solid #e2e8f0;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 12px 30px rgba(37,99,235,.18);
+}
+
+.icon{
+  font-size:45px;
+  margin-bottom:12px;
+}
+
+.card h3{
+  margin-bottom:8px;
+  color:#075985;
+}
+
+.card p{
+  color:#64748b;
+  font-size:14px;
+}
+
+/* NO RESULT */
+#noResult{
+  display:none;
+  text-align:center;
+  padding:30px;
+  color:#64748b;
+}
+
+/* DOWNLOAD APP */
+.download-box{
+  background:white;
+  border-radius:20px;
+  padding:25px 20px;
+  text-align:center;
+  box-shadow:0 6px 25px rgba(0,0,0,.10);
+  border:1px solid #e2e8f0;
+  position:sticky;
+  top:90px;
+}
+
+.download-box h2{
+  color:#075985;
+  font-size:22px;
+  margin-bottom:8px;
+}
+
+.download-box p{
+  color:#64748b;
+  font-size:14px;
+  line-height:1.5;
+  margin-bottom:18px;
+}
+
+/* APP LOGO */
+.app-logo{
+  width:100px;
+  height:100px;
+  border-radius:22px;
+  object-fit:cover;
+  margin-bottom:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+/* DOWNLOAD BUTTON */
+.download-btn{
+  display:block;
+  width:100%;
+  padding:14px 10px;
+  background:linear-gradient(135deg,#075985,#2563eb);
+  color:white;
+  text-decoration:none;
+  border-radius:12px;
+  font-weight:bold;
+  font-size:16px;
+  transition:.3s;
+}
+
+.download-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(37,99,235,.25);
+}
+
+/* CONTACT */
+.info{
+  background:#0f172a;
+  color:white;
+  padding:45px 5%;
+  text-align:center;
+}
+
+.info h2{
+  margin-bottom:12px;
+}
+
+.info p{
+  color:#cbd5e1;
+}
+
+/* FOOTER */
+footer{
+  background:#020617;
+  color:#94a3b8;
+  text-align:center;
+  padding:20px;
+  font-size:14px;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+  nav{
+    display:none;
+  }
+
+  .hero{
+    padding:40px 15px;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+
+  .search-box{
+    width:100%;
+  }
+
+  .search-box button{
+    padding:0 18px;
+  }
+
+  .main-layout{
+    grid-template-columns:1fr;
+    padding:35px 18px;
+  }
+
+  .download-box{
+    position:static;
+    max-width:400px;
+    margin:0 auto;
+  }
+
+  .services{
+    grid-template-columns:
+    repeat(2,1fr);
+  }
+}
+
+@media(max-width:450px){
+
+  .services{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+  <div class="logo">
+    APNA <span>SATHI</span>
+  </div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<section class="hero" id="home">
+
+  <h1>Apna Sathi</h1>
+
+  <p>Your Digital Service Partner</p>
+
+
+  <!-- SEARCH -->
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search services..."
+      onkeyup="searchServices()"
+    >
+
+    <button onclick="searchServices()">
+      🔍 Search
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= MAIN ================= -->
+
+<div class="main-layout">
+
+
+  <!-- ================= SERVICES ================= -->
+
+  <section class="section" id="services">
+
+    <h2 class="section-title">
+      Our Services
+    </h2>
+
+
+    <div class="services">
+
+
+      <!-- AADHAAR -->
+
+      <a
+        href="YOUR_AADHAAR_LINK_HERE"
+        class="service-link"
+        target="_blank"
+      >
+
+        <div
+          class="card"
+          data-search="aadhaar aadhaar card aadhar"
+        >
+
+          <div class="icon">🪪</div>
+
+          <h3>Aadhaar Card</h3>
+
+          <p>Aadhaar related services</p>
+
+        </div>
+
+      </a>
+
+
+      <!-- PAN -->
+
+      <a
+        href="YOUR_PAN_LINK_HERE"
+        class="service-link"
+        target="_blank"
+      >
+
+        <div
+          class="card"
+          data-search="pan pan card"
+        >
+
+          <div class="icon">💳</div>
+
+          <h3>PAN Card</h3>
+
+          <p>PAN card related services</p>
+
+        </div>
+
+      </a>
+
+
+      <!-- VOTER -->
+
+      <a
+        href="YOUR_VOTER_LINK_HERE"
+        class="service-link"
+        target="_blank"
+      >
+
+        <div
+          class="card"
+          data-search="voter voter card election"
+        >
+
+          <div class="icon">🗳️</div>
+
+          <h3>Voter Card</h3>
+
+          <p>Voter card related services</p>
+
+        </div>
+
+      </a>
+
+
+      <!-- AYUSHMAN -->
+
+      <a
+        href="YOUR_AYUSHMAN_LINK_HERE"
+        class="service-link"
+        target="_blank"
+      >
+
+        <div
+          class="card"
+          data-search="ayushman ayushman card health"
+        >
+
+          <div class="icon">🏥</div>
+
+          <h3>Ayushman Card</h3>
+
+          <p>Ayushman card related services</p>
+
+        </div>
+
+      </a>
+
+
+      <!-- DOCUMENT -->
+
+      <a
+        href="YOUR_DOCUMENT_LINK_HERE"
+        class="service-link"
+        target="_blank"
+      >
+
+        <div
+          class="card"
+          data-search="document documents certificate"
+        >
+
+          <div class="icon">📄</div>
+
+          <h3>Document Services</h3>
+
+          <p>Document related services</p>
+
+        </div>
+
+      </a>
+
+
+      <!-- OTHER -->
+
+      <a
+        href="YOUR_OTHER_SERVICE_LINK_HERE"
+        class="service-link"
+        target="_blank"
+      >
+
+        <div
+          class="card"
+          data-search="other services online"
+        >
+
+          <div class="icon">⚙️</div>
+
+          <h3>Other Services</h3>
+
+          <p>Explore more services</p>
+
+        </div>
+
+      </a>
+
+    </div>
+
+
+    <!-- NO RESULT -->
+
+    <div id="noResult">
+      ❌ No service found
+    </div>
+
+  </section>
+
+
+  <!-- ================= DOWNLOAD APP ================= -->
+
+  <aside class="download-box">
+
+    <!-- APP LOGO -->
+
+    <img
+      class="app-logo"
+      src="YOUR_APP_LOGO_LINK_HERE"
+      alt="Apna Sathi App"
+    >
+
+
+    <h2>
+      Apna Sathi App
+    </h2>
+
+
+    <p>
+      Download our mobile app and
+      access digital services easily.
+    </p>
+
+
+    <!-- DOWNLOAD BUTTON -->
+
+    <a
+      class="download-btn"
+      href="YOUR_APP_DOWNLOAD_LINK_HERE"
+      target="_blank"
+    >
+
+      📱 Download App
+
+    </a>
+
+  </aside>
+
+</div>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="info" id="contact">
+
+  <h2>
+    Apna Sathi
+  </h2>
+
+  <p>
+    Simple • Fast • Digital Services
+  </p>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  © 2026 Apna Sathi. All Rights Reserved.
+
+</footer>
+
+
+<!-- ================= SEARCH JAVASCRIPT ================= -->
+
+<script>
+
+function searchServices(){
+
+  let input =
+    document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase()
+    .trim();
+
+  let cards =
+    document.querySelectorAll(".card");
+
+  let found = 0;
+
+
+  cards.forEach(function(card){
+
+    let keywords =
+      card
+      .getAttribute("data-search")
+      .toLowerCase();
+
+    let parent =
+      card.closest(".service-link");
+
+
+    if(keywords.includes(input)){
+
+      parent.style.display = "";
+      found++;
+
+    }else{
+
+      parent.style.display = "none";
+
+    }
+
+  });
+
+
+  if(found === 0){
+
+    document
+    .getElementById("noResult")
+    .style.display = "block";
+
+  }else{
+
+    document
+    .getElementById("noResult")
+    .style.display = "none";
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
