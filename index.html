@@ -1,656 +1,1272 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Apna Sathi - Digital Service Portal">
+
 <title>Apna Sathi</title>
 
 <style>
+
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
+  font-family:Arial,"Noto Sans Bengali","Noto Sans Devanagari",sans-serif;
 }
 
 body{
-  background:#f4f7fb;
-  color:#172033;
+  min-height:100vh;
+  background:linear-gradient(
+    135deg,
+    #ff9933 0%,
+    #fff 45%,
+    #fff 55%,
+    #138808 100%
+  );
 }
 
-/* HEADER */
-header{
-  background:linear-gradient(135deg,#075985,#2563eb);
-  color:white;
-  padding:18px 5%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  box-shadow:0 3px 15px rgba(0,0,0,.15);
+
+/* ================= PRIVACY ================= */
+
+#privacyPage{
+  min-height:100vh;
+  padding:18px;
 }
+
+.privacy-box{
+  max-width:720px;
+  margin:auto;
+  background:#fff;
+  padding:22px;
+  border-radius:24px;
+  border-top:6px solid #ff9933;
+  border-bottom:6px solid #138808;
+  box-shadow:0 10px 35px rgba(0,0,0,.2);
+}
+
+
+/* APP LOGO */
 
 .logo{
-  font-size:25px;
-  font-weight:800;
+  width:90px;
+  height:90px;
+  margin:auto;
+  border-radius:23px;
+  overflow:hidden;
+  box-shadow:0 5px 18px rgba(0,0,0,.18);
+  background:#fff;
 }
 
-.logo span{
-  color:#facc15;
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
-nav{
-  display:flex;
-  gap:20px;
-}
 
-nav a{
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-/* HERO */
-.hero{
+h1{
   text-align:center;
-  padding:55px 20px;
-  background:linear-gradient(135deg,#dbeafe,#eff6ff);
+  margin-top:12px;
+  font-size:28px;
 }
 
-.hero h1{
-  font-size:42px;
-  color:#075985;
-  margin-bottom:10px;
+.subtitle{
+  text-align:center;
+  color:#666;
+  font-size:13px;
+  line-height:1.8;
+  margin-top:6px;
 }
 
-.hero p{
-  font-size:17px;
-  color:#475569;
+.notice{
+  margin-top:18px;
+  padding:15px;
+  background:#fff5e8;
+  border-left:5px solid #ff9933;
+  border-radius:10px;
+  font-size:13px;
+  line-height:1.8;
+}
+
+
+/* PRIVACY SCROLL */
+
+.policy{
+  height:460px;
+  overflow-y:auto;
+  margin-top:18px;
+  padding:16px;
+  background:#fafafa;
+  border:2px solid #ddd;
+  border-radius:17px;
+  scroll-behavior:smooth;
+}
+
+.policy::-webkit-scrollbar{
+  width:8px;
+}
+
+.policy::-webkit-scrollbar-track{
+  background:#eee;
+}
+
+.policy::-webkit-scrollbar-thumb{
+  background:linear-gradient(#ff9933,#138808);
+  border-radius:10px;
+}
+
+section{
   margin-bottom:25px;
 }
 
-/* SEARCH */
-.search-box{
-  max-width:650px;
-  margin:auto;
-  display:flex;
+h2{
+  font-size:18px;
+  margin-bottom:9px;
+}
+
+.lang{
   background:white;
-  padding:7px;
-  border-radius:50px;
-  box-shadow:0 8px 30px rgba(0,0,0,.12);
+  padding:11px;
+  border-radius:9px;
+  border:1px solid #eee;
+  margin:8px 0;
+  font-size:13px;
+  line-height:1.8;
 }
 
-.search-box input{
-  flex:1;
-  border:0;
-  outline:none;
-  padding:15px 20px;
-  font-size:16px;
-  border-radius:50px;
+
+/* AGREEMENT */
+
+.agreement{
+  margin-top:18px;
+  padding:15px;
+  background:#f5f5f5;
+  border:1px solid #ddd;
+  border-radius:15px;
 }
 
-.search-box button{
-  border:0;
-  background:#2563eb;
-  color:white;
-  padding:0 25px;
-  border-radius:50px;
-  font-size:16px;
+.check{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  font-size:13px;
+  line-height:1.7;
   font-weight:bold;
   cursor:pointer;
 }
 
-/* MAIN LAYOUT */
-.main-layout{
-  max-width:1200px;
-  margin:auto;
-  padding:40px 5%;
-  display:grid;
-  grid-template-columns:1fr 300px;
-  gap:25px;
+.check input{
+  width:20px;
+  height:20px;
+  margin-top:3px;
+  accent-color:#138808;
 }
 
-/* SERVICES */
-.section{
-  padding:0;
+
+/* ROBOT */
+
+.robot{
+  margin-top:15px;
+  width:100%;
+  padding:14px;
+  background:white;
+  border:1px solid #ccc;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
-.section-title{
+.robot input{
+  width:21px;
+  height:21px;
+  cursor:pointer;
+}
+
+.robot-text{
+  font-size:14px;
+}
+
+.robot-small{
+  display:block;
+  font-size:9px;
+  color:#777;
+  margin-top:2px;
+}
+
+
+/* CONTINUE */
+
+.continue{
+  width:100%;
+  margin-top:16px;
+  padding:15px;
+  border:none;
+  border-radius:50px;
+  background:#aaa;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  cursor:not-allowed;
+}
+
+.continue.active{
+  background:linear-gradient(
+    90deg,
+    #ff9933,
+    #138808
+  );
+  cursor:pointer;
+  box-shadow:0 6px 20px rgba(0,0,0,.2);
+}
+
+
+/* ================= SERVICES ================= */
+
+#servicesPage{
+  display:none;
+  min-height:100vh;
+  padding-bottom:70px;
+}
+
+.header{
   text-align:center;
-  font-size:30px;
-  margin-bottom:30px;
+  padding:28px 15px 15px;
 }
+
+
+/* SERVICES PAGE LOGO */
+
+.app-logo{
+  width:95px;
+  height:95px;
+  margin:auto;
+  border-radius:25px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 7px 20px rgba(0,0,0,.2);
+}
+
+.app-logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.header h1{
+  font-size:32px;
+}
+
+.header p{
+  margin-top:7px;
+  font-size:13px;
+  line-height:1.8;
+  font-weight:bold;
+}
+
+
+/* MAIN DOWNLOAD */
+
+.main-download{
+  display:block;
+  width:92%;
+  max-width:450px;
+  margin:15px auto 25px;
+  padding:16px;
+  text-align:center;
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(
+    90deg,
+    #ff9933,
+    #138808
+  );
+  border-radius:50px;
+  font-size:18px;
+  font-weight:bold;
+  box-shadow:0 7px 20px rgba(0,0,0,.25);
+}
+
+.title{
+  text-align:center;
+  font-size:24px;
+  margin-top:20px;
+}
+
+.subtitle2{
+  text-align:center;
+  font-size:13px;
+  line-height:1.8;
+  margin:7px 15px 20px;
+}
+
+
+/* SERVICE GRID */
 
 .services{
+  width:92%;
+  max-width:900px;
+  margin:auto;
   display:grid;
-  grid-template-columns:
-  repeat(auto-fit,minmax(190px,1fr));
-  gap:20px;
-}
-
-.service-link{
-  text-decoration:none;
-  color:inherit;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
 }
 
 .card{
   background:white;
-  padding:28px 20px;
+  padding:16px 10px;
+  border-radius:19px;
   text-align:center;
-  border-radius:18px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
-  transition:.3s;
-  cursor:pointer;
-  border:1px solid #e2e8f0;
-}
-
-.card:hover{
-  transform:translateY(-7px);
-  box-shadow:0 12px 30px rgba(37,99,235,.18);
+  box-shadow:0 5px 18px rgba(0,0,0,.15);
 }
 
 .icon{
-  font-size:45px;
-  margin-bottom:12px;
+  font-size:35px;
 }
 
 .card h3{
-  margin-bottom:8px;
-  color:#075985;
+  font-size:15px;
+  margin-top:7px;
 }
 
 .card p{
-  color:#64748b;
-  font-size:14px;
+  color:#666;
+  font-size:11px;
+  line-height:1.6;
+  margin-top:6px;
 }
 
-/* NO RESULT */
-#noResult{
-  display:none;
-  text-align:center;
-  padding:30px;
-  color:#64748b;
-}
-
-/* DOWNLOAD APP */
-.download-box{
-  background:white;
-  border-radius:20px;
-  padding:25px 20px;
-  text-align:center;
-  box-shadow:0 6px 25px rgba(0,0,0,.10);
-  border:1px solid #e2e8f0;
-  position:sticky;
-  top:90px;
-}
-
-.download-box h2{
-  color:#075985;
-  font-size:22px;
-  margin-bottom:8px;
-}
-
-.download-box p{
-  color:#64748b;
-  font-size:14px;
-  line-height:1.5;
-  margin-bottom:18px;
-}
-
-/* APP LOGO */
-.app-logo{
-  width:100px;
-  height:100px;
-  border-radius:22px;
-  object-fit:cover;
-  margin-bottom:15px;
-  box-shadow:0 5px 15px rgba(0,0,0,.15);
-}
-
-/* DOWNLOAD BUTTON */
 .download-btn{
   display:block;
-  width:100%;
-  padding:14px 10px;
-  background:linear-gradient(135deg,#075985,#2563eb);
+  margin-top:11px;
+  padding:10px 5px;
+  border-radius:30px;
+  background:#138808;
   color:white;
   text-decoration:none;
-  border-radius:12px;
+  font-size:12px;
   font-weight:bold;
-  font-size:16px;
-  transition:.3s;
 }
 
-.download-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(37,99,235,.25);
-}
-
-/* CONTACT */
-.info{
-  background:#0f172a;
-  color:white;
-  padding:45px 5%;
-  text-align:center;
-}
-
-.info h2{
-  margin-bottom:12px;
-}
-
-.info p{
-  color:#cbd5e1;
-}
-
-/* FOOTER */
 footer{
-  background:#020617;
-  color:#94a3b8;
+  margin-top:35px;
+  padding:25px 15px;
+  background:#111;
+  color:white;
   text-align:center;
-  padding:20px;
-  font-size:14px;
+  font-size:12px;
+  line-height:1.8;
 }
 
-/* MOBILE */
-@media(max-width:800px){
 
-  nav{
-    display:none;
+@media(max-width:500px){
+
+  #privacyPage{
+    padding:10px;
   }
 
-  .hero{
-    padding:40px 15px;
+  .privacy-box{
+    padding:15px;
   }
 
-  .hero h1{
-    font-size:34px;
-  }
-
-  .search-box{
-    width:100%;
-  }
-
-  .search-box button{
-    padding:0 18px;
-  }
-
-  .main-layout{
-    grid-template-columns:1fr;
-    padding:35px 18px;
-  }
-
-  .download-box{
-    position:static;
-    max-width:400px;
-    margin:0 auto;
+  .policy{
+    height:450px;
+    padding:12px;
   }
 
   .services{
-    grid-template-columns:
-    repeat(2,1fr);
+    gap:9px;
   }
+
+  .card{
+    padding:14px 7px;
+  }
+
 }
 
-@media(max-width:450px){
-
-  .services{
-    grid-template-columns:1fr;
-  }
-}
 </style>
+
 </head>
 
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- ================= PRIVACY PAGE ================= -->
 
-<header>
+<div id="privacyPage">
 
-  <div class="logo">
-    APNA <span>SATHI</span>
-  </div>
+<div class="privacy-box">
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
 
-</header>
+<!-- YOUR APP LOGO -->
 
+<div class="logo">
 
-<!-- ================= HOME ================= -->
-
-<section class="hero" id="home">
-
-  <h1>Apna Sathi</h1>
-
-  <p>Your Digital Service Partner</p>
-
-
-  <!-- SEARCH -->
-
-  <div class="search-box">
-
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="Search services..."
-      onkeyup="searchServices()"
-    >
-
-    <button onclick="searchServices()">
-      🔍 Search
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- ================= MAIN ================= -->
-
-<div class="main-layout">
-
-
-  <!-- ================= SERVICES ================= -->
-
-  <section class="section" id="services">
-
-    <h2 class="section-title">
-      Our Services
-    </h2>
-
-
-    <div class="services">
-
-
-      <!-- AADHAAR -->
-
-      <a
-        href="YOUR_AADHAAR_LINK_HERE"
-        class="service-link"
-        target="_blank"
-      >
-
-        <div
-          class="card"
-          data-search="aadhaar aadhaar card aadhar"
-        >
-
-          <div class="icon">🪪</div>
-
-          <h3>Aadhaar Card</h3>
-
-          <p>Aadhaar related services</p>
-
-        </div>
-
-      </a>
-
-
-      <!-- PAN -->
-
-      <a
-        href="YOUR_PAN_LINK_HERE"
-        class="service-link"
-        target="_blank"
-      >
-
-        <div
-          class="card"
-          data-search="pan pan card"
-        >
-
-          <div class="icon">💳</div>
-
-          <h3>PAN Card</h3>
-
-          <p>PAN card related services</p>
-
-        </div>
-
-      </a>
-
-
-      <!-- VOTER -->
-
-      <a
-        href="YOUR_VOTER_LINK_HERE"
-        class="service-link"
-        target="_blank"
-      >
-
-        <div
-          class="card"
-          data-search="voter voter card election"
-        >
-
-          <div class="icon">🗳️</div>
-
-          <h3>Voter Card</h3>
-
-          <p>Voter card related services</p>
-
-        </div>
-
-      </a>
-
-
-      <!-- AYUSHMAN -->
-
-      <a
-        href="YOUR_AYUSHMAN_LINK_HERE"
-        class="service-link"
-        target="_blank"
-      >
-
-        <div
-          class="card"
-          data-search="ayushman ayushman card health"
-        >
-
-          <div class="icon">🏥</div>
-
-          <h3>Ayushman Card</h3>
-
-          <p>Ayushman card related services</p>
-
-        </div>
-
-      </a>
-
-
-      <!-- DOCUMENT -->
-
-      <a
-        href="YOUR_DOCUMENT_LINK_HERE"
-        class="service-link"
-        target="_blank"
-      >
-
-        <div
-          class="card"
-          data-search="document documents certificate"
-        >
-
-          <div class="icon">📄</div>
-
-          <h3>Document Services</h3>
-
-          <p>Document related services</p>
-
-        </div>
-
-      </a>
-
-
-      <!-- OTHER -->
-
-      <a
-        href="YOUR_OTHER_SERVICE_LINK_HERE"
-        class="service-link"
-        target="_blank"
-      >
-
-        <div
-          class="card"
-          data-search="other services online"
-        >
-
-          <div class="icon">⚙️</div>
-
-          <h3>Other Services</h3>
-
-          <p>Explore more services</p>
-
-        </div>
-
-      </a>
-
-    </div>
-
-
-    <!-- NO RESULT -->
-
-    <div id="noResult">
-      ❌ No service found
-    </div>
-
-  </section>
-
-
-  <!-- ================= DOWNLOAD APP ================= -->
-
-  <aside class="download-box">
-
-    <!-- APP LOGO -->
-
-    <img
-      class="app-logo"
-      src="YOUR_APP_LOGO_LINK_HERE"
-      alt="Apna Sathi App"
-    >
-
-
-    <h2>
-      Apna Sathi App
-    </h2>
-
-
-    <p>
-      Download our mobile app and
-      access digital services easily.
-    </p>
-
-
-    <!-- DOWNLOAD BUTTON -->
-
-    <a
-      class="download-btn"
-      href="YOUR_APP_DOWNLOAD_LINK_HERE"
-      target="_blank"
-    >
-
-      📱 Download App
-
-    </a>
-
-  </aside>
+<img
+src="https://i.ibb.co/1JJ9TfKV/IMG-20260812-215757.png"
+alt="Apna Sathi Logo">
 
 </div>
 
 
-<!-- ================= CONTACT ================= -->
+<h1>
+Apna Sathi
+</h1>
 
-<section class="info" id="contact">
+<div class="subtitle">
 
-  <h2>
-    Apna Sathi
-  </h2>
+Privacy Policy | গোপনীয়তা নীতি | गोपनीयता नीति
 
-  <p>
-    Simple • Fast • Digital Services
-  </p>
+</div>
+
+
+<div class="notice">
+
+<b>⚠️ Important Notice</b>
+
+<br><br>
+
+<b>English:</b><br>
+
+Apna Sathi is a private and independent
+digital services platform. It is not a
+Government website, Government department
+or Government application.
+
+<br><br>
+
+<b>বাংলা:</b><br>
+
+Apna Sathi একটি private ও independent
+digital services platform। এটি কোনো
+সরকারি website, Government department
+বা Government application নয়।
+
+<br><br>
+
+<b>हिंदी:</b><br>
+
+Apna Sathi एक private और independent
+digital services platform है। यह कोई
+Government website, Government department
+या Government application नहीं है।
+
+</div>
+
+
+<div class="policy">
+
+
+<section>
+
+<h2>1. About Apna Sathi</h2>
+
+<div class="lang">
+
+<b>English:</b><br>
+Apna Sathi helps users discover online
+services, forms, application information,
+guides and useful links in one place.
+
+</div>
+
+<div class="lang">
+
+<b>বাংলা:</b><br>
+Apna Sathi বিভিন্ন online service, form,
+application information, guide এবং useful
+link এক জায়গায় খুঁজে পেতে সাহায্য করে।
+
+</div>
+
+<div class="lang">
+
+<b>हिंदी:</b><br>
+Apna Sathi विभिन्न online services,
+forms, application information, guides
+और useful links एक जगह खोजने में मदद
+करता है।
+
+</div>
 
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<section>
+
+<h2>2. Government Affiliation</h2>
+
+<div class="lang">
+
+<b>English:</b><br>
+Apna Sathi is not officially affiliated
+with, endorsed by, sponsored by, or
+operated by any Government authority.
+
+</div>
+
+<div class="lang">
+
+<b>বাংলা:</b><br>
+Apna Sathi কোনো সরকারি কর্তৃপক্ষের সঙ্গে
+officially affiliated, endorsed, sponsored
+বা operated নয়।
+
+</div>
+
+<div class="lang">
+
+<b>हिंदी:</b><br>
+Apna Sathi किसी भी Government authority
+से officially affiliated, endorsed,
+sponsored या operated नहीं है।
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>3. Network, VPN & Proxy</h2>
+
+<div class="lang">
+
+<b>English:</b><br>
+A stable internet connection is recommended.
+VPN, Proxy, Private DNS or other network
+configurations may affect some features
+or external services.
+
+</div>
+
+<div class="lang">
+
+<b>বাংলা:</b><br>
+Stable internet connection ব্যবহার করার
+পরামর্শ দেওয়া হয়। VPN, Proxy, Private DNS
+বা অন্য network configuration-এর কারণে
+কিছু feature বা external service কাজ নাও
+করতে পারে।
+
+</div>
+
+<div class="lang">
+
+<b>हिंदी:</b><br>
+Stable internet connection की सलाह दी
+जाती है। VPN, Proxy, Private DNS या अन्य
+network configuration के कारण कुछ
+features या external services काम नहीं
+कर सकती हैं।
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>4. Personal Information</h2>
+
+<div class="lang">
+
+<b>English:</b><br>
+Some services may require name, mobile
+number, email, address or documents.
+Provide personal information only when
+necessary.
+
+</div>
+
+<div class="lang">
+
+<b>বাংলা:</b><br>
+কিছু service-এর জন্য নাম, mobile number,
+email, address বা document প্রয়োজন হতে পারে।
+প্রয়োজন হলেই personal information দিন।
+
+</div>
+
+<div class="lang">
+
+<b>हिंदी:</b><br>
+कुछ services के लिए नाम, mobile number,
+email, address या documents की आवश्यकता
+हो सकती है। जरूरत होने पर ही personal
+information दें।
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>5. App Permissions</h2>
+
+<div class="lang">
+
+<b>English:</b><br>
+The App may request permissions when
+required for a particular feature.
+Review permissions before allowing access.
+
+</div>
+
+<div class="lang">
+
+<b>বাংলা:</b><br>
+কোনো feature-এর প্রয়োজন হলে App permission
+চাইতে পারে। Allow করার আগে permission
+দেখে নিন।
+
+</div>
+
+<div class="lang">
+
+<b>हिंदी:</b><br>
+किसी feature के लिए App permission मांग
+सकता है। Allow करने से पहले permission
+को देखें।
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>6. External Websites</h2>
+
+<div class="lang">
+
+<b>English:</b><br>
+Some services may open external or official
+websites. Their own Privacy Policy and
+Terms may apply.
+
+</div>
+
+<div class="lang">
+
+<b>বাংলা:</b><br>
+কিছু service external বা official website
+খুলতে পারে। সেই website-এর নিজস্ব Privacy
+Policy এবং Terms প্রযোজ্য হতে পারে।
+
+</div>
+
+<div class="lang">
+
+<b>हिंदी:</b><br>
+कुछ services external या official websites
+खोल सकती हैं। उस website की अपनी Privacy
+Policy और Terms लागू हो सकती हैं।
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>7. User Responsibility</h2>
+
+<div class="lang">
+
+<b>English:</b><br>
+Users should check eligibility, documents,
+fees, deadlines and application details
+before applying.
+
+</div>
+
+<div class="lang">
+
+<b>বাংলা:</b><br>
+আবেদন করার আগে eligibility, documents,
+fees, deadline এবং application details
+যাচাই করা ব্যবহারকারীর দায়িত্ব।
+
+</div>
+
+<div class="lang">
+
+<b>हिंदी:</b><br>
+आवेदन करने से पहले eligibility, documents,
+fees, deadline और application details
+जांचना user की जिम्मेदारी है।
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>8. Agreement</h2>
+
+<div class="lang">
+
+<b>English:</b><br>
+By selecting “I Agree” and continuing,
+you confirm that you have read,
+understood and accepted this Privacy
+Policy and User Guidelines.
+
+</div>
+
+<div class="lang">
+
+<b>বাংলা:</b><br>
+“I Agree” নির্বাচন করে Continue করলে
+আপনি নিশ্চিত করছেন যে আপনি Privacy Policy
+এবং User Guidelines পড়েছেন, বুঝেছেন এবং
+মেনে নিয়েছেন।
+
+</div>
+
+<div class="lang">
+
+<b>हिंदी:</b><br>
+“I Agree” चुनकर Continue करने पर आप
+पुष्टि करते हैं कि आपने Privacy Policy
+और User Guidelines पढ़ी, समझी और
+स्वीकार की हैं।
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<!-- AGREE -->
+
+<div class="agreement">
+
+<label class="check">
+
+<input
+type="checkbox"
+id="agree">
+
+<span>
+
+<b>English:</b>
+I have read and agree to the Privacy
+Policy and User Guidelines.
+
+<br>
+
+<b>বাংলা:</b>
+আমি Privacy Policy এবং User Guidelines
+পড়েছি এবং মেনে নিতে রাজি।
+
+<br>
+
+<b>हिंदी:</b>
+मैंने Privacy Policy और User Guidelines
+पढ़ी हैं और मैं सहमत हूं।
+
+</span>
+
+</label>
+
+
+<!-- ROBOT -->
+
+<div class="robot">
+
+<input
+type="checkbox"
+id="robot">
+
+<div class="robot-text">
+
+I'm not a robot
+
+<span class="robot-small">
+Security verification
+</span>
+
+</div>
+
+</div>
+
+
+<button
+id="continueBtn"
+class="continue"
+disabled
+onclick="openServices()">
+
+Continue<br>
+
+आगे जाएं | এগিয়ে যান
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= SERVICES PAGE ================= -->
+
+<div id="servicesPage">
+
+
+<div class="header">
+
+
+<!-- SAME APP LOGO -->
+
+<div class="app-logo">
+
+<img
+src="https://i.ibb.co/1JJ9TfKV/IMG-20260812-215757.png"
+alt="Apna Sathi Logo">
+
+</div>
+
+
+<h1>
+Apna Sathi
+</h1>
+
+
+<p>
+
+All Online Services in One App 🇮🇳
+
+<br>
+
+এক অ্যাপেই বিভিন্ন অনলাইন পরিষেবা
+
+<br>
+
+एक ऐप में विभिन्न ऑनलाइन सेवाएं
+
+</p>
+
+</div>
+
+
+<!-- APP DOWNLOAD -->
+
+<a
+href="https://www.appcreator24.com/app4109313-2fr3yg"
+download
+class="main-download">
+
+📲 Download Apna Sathi App
+
+</a>
+
+
+<h2 class="title">
+All Online Services
+</h2>
+
+
+<div class="subtitle2">
+
+এই সব service App-এর মধ্যে পাওয়া যাবে
+
+<br>
+
+इन सभी services को App में पाया जा सकता है
+
+</div>
+
+
+<div class="services">
+
+
+<div class="card">
+
+<div class="icon">📝</div>
+
+<h3>SSC GD / Job Forms</h3>
+
+<p>
+SSC GD • SSC • Railway • Police • Defence
+<br>
+চাকরির ফর্ম • नौकरी फॉर्म
+</p>
+
+<a
+href=" https://www.appcreator24.com/app4109313-2fr3yg "
+download
+class="download-btn">
+
+📲 Download App
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📄</div>
+
+<h3>Certificate Services</h3>
+
+<p>
+Income • Caste • Residence • Birth
+</p>
+
+<a
+href="https://www.appcreator24.com/app4109313-2fr3yg"
+download
+class="download-btn">
+
+📲 Download App
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🪪</div>
+
+<h3>Aadhaar Services</h3>
+
+<p>
+Aadhaar related online services
+</p>
+
+<a
+href=" https://www.appcreator24.com/app4109313-2fr3yg "
+download
+class="download-btn">
+
+📲 Download App
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">💳</div>
+
+<h3>PAN Card</h3>
+
+<p>
+PAN related services
+</p>
+
+<a
+href=" https://www.appcreator24.com/app4109313-2fr3yg "
+download
+class="download-btn">
+
+📲 Download App
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🗳️</div>
+
+<h3>Voter Services</h3>
+
+<p>
+Voter Card related services
+</p>
+
+<a
+href=" https://www.appcreator24.com/app4109313-2fr3yg "
+download
+class="download-btn">
+
+📲 Download App
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🍚</div>
+
+<h3>Ration Card</h3>
+
+<p>
+Ration Card related services
+</p>
+
+<a
+href="https://www.appcreator24.com/app4109313-2fr3yg  "
+download
+class="download-btn">
+
+📲 Download App
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🏥</div>
+
+<h3>Ayushman Card</h3>
+
+<p>
+Health related services
+</p>
+
+<a
+href=" https://www.appcreator24.com/app4109313-2fr3yg "
+download
+class="download-btn">
+
+📲 Download App
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">❤️</div>
+
+<h3>ABHA Services</h3>
+
+<p>
+ABHA related services
+</p>
+
+<a
+href="https://www.appcreator24.com/app4109313-2fr3yg "
+download
+class="download-btn">
+
+📲 Download App
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">👷</div>
+
+<h3>Labour Services</h3>
+
+<p>
+Labour related online services
+</p>
+
+<a
+href=" https://www.appcreator24.com/app4109313-2fr3yg "
+download
+class="download-btn">
+
+📲 Download App
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🛂</div>
+
+<h3>Passport Services</h3>
+
+<p>
+Passport related services
+</p>
+
+<a
+href=" https://www.appcreator24.com/app4109313-2fr3yg "
+download
+class="download-btn">
+
+📲 Download App
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">💡</div>
+
+<h3>Bill Payment</h3>
+
+<p>
+Electricity • Mobile • Bills
+</p>
+
+<a
+href=" https://www.appcreator24.com/app4109313-2fr3yg "
+download
+class="download-btn">
+
+📲 Download App
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🌐</div>
+
+<h3>More Online Services</h3>
+
+<p>
+More services available in App
+</p>
+
+<a
+href="https://www.appcreator24.com/app4109313-2fr3yg  "
+download
+class="download-btn">
+
+📲 Download App
+
+</a>
+
+</div>
+
+
+</div>
+
 
 <footer>
 
-  © 2026 Apna Sathi. All Rights Reserved.
+<b>Apna Sathi 🇮🇳</b>
+
+<br>
+
+Your Digital Partner |
+আপনার ডিজিটাল সাথী |
+आपका डिजिटल साथी
+
+<br><br>
+
+© 2026 Apna Sathi. All Rights Reserved.
 
 </footer>
 
+</div>
 
-<!-- ================= SEARCH JAVASCRIPT ================= -->
+
 
 <script>
 
-function searchServices(){
+/* CHECKBOX */
 
-  let input =
-    document
-    .getElementById("searchInput")
-    .value
-    .toLowerCase()
-    .trim();
+const agree =
+document.getElementById("agree");
 
-  let cards =
-    document.querySelectorAll(".card");
+const robot =
+document.getElementById("robot");
 
-  let found = 0;
+const continueBtn =
+document.getElementById("continueBtn");
 
 
-  cards.forEach(function(card){
+function checkBoxes(){
 
-    let keywords =
-      card
-      .getAttribute("data-search")
-      .toLowerCase();
+if(
+agree.checked &&
+robot.checked
+){
 
-    let parent =
-      card.closest(".service-link");
+continueBtn.disabled=false;
 
+continueBtn.classList.add("active");
 
-    if(keywords.includes(input)){
+}else{
 
-      parent.style.display = "";
-      found++;
+continueBtn.disabled=true;
 
-    }else{
+continueBtn.classList.remove("active");
 
-      parent.style.display = "none";
+}
 
-    }
-
-  });
+}
 
 
-  if(found === 0){
+agree.addEventListener(
+"change",
+checkBoxes
+);
 
-    document
-    .getElementById("noResult")
-    .style.display = "block";
+robot.addEventListener(
+"change",
+checkBoxes
+);
 
-  }else{
 
-    document
-    .getElementById("noResult")
-    .style.display = "none";
+/* OPEN SERVICES */
 
-  }
+function openServices(){
+
+if(
+!agree.checked ||
+!robot.checked
+){
+
+alert(
+"Please tick both boxes.\n\n"+
+"দুটি box-ই tick করুন।\n\n"+
+"दोनों box को tick करें।"
+);
+
+return;
+
+}
+
+
+document.getElementById(
+"privacyPage"
+).style.display="none";
+
+
+document.getElementById(
+"servicesPage"
+).style.display="block";
+
+
+window.scrollTo(0,0);
 
 }
 
 </script>
+
+
+
 
 </body>
 </html>
